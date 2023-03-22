@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  ats-api:
+    environment:
+      - TZ=Asia/Krasnoyarsk
+    container_name: ats-api
+    build: .
+    volumes:
+      - .env:/app/.env
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
